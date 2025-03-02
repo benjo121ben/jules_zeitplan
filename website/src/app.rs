@@ -109,12 +109,12 @@ fn HomePage() -> impl IntoView {
                             <button type="button" 
                                 on:click=move |_| week_nr_signal.set(week_nr_signal.get() - 1)
                             >
-                                go back
+                                previous
                             </button>
                             <button type="button" 
                                 on:click=move |_| week_nr_signal.set(week_nr_signal.get() + 1)
                             >
-                                advance
+                                next
                             </button>
                             
                             <TimeTable lesson_data=cloned_data/>
@@ -179,17 +179,36 @@ fn TimeTable(lesson_data: LessonData) -> impl IntoView {
         times.push(format!("{}:30", 7 + offset));
     };
     let index_times: Vec<(usize, String)> = times.into_iter().enumerate().collect();
+    let index_times_clone = index_times.clone();
     view!{
         <div class="time-table">
             <For
                 each=move || index_times.clone()
-                key=|(idx, time)| {
+                key=|(_, time)| {
                     time.to_string()
                 }
                 children=move |(idx, time)| {
                     view! {
                         <div
-                            style:grid-row-start=move || (idx * 2 + 2).to_string()
+                            class="time-start"
+                            style:grid-row=move || format!("{} / span 2", idx * 2 + 1)
+                        >
+                            {move || time.clone()}
+                        </div>
+                    }
+                }
+            />
+            <For
+                each=move || index_times_clone.clone()
+                key=|(_, time)| {
+                    time.to_string()
+                }
+                children=move |(idx, time)| {
+                    view! {
+                        <div
+                            class="time-end"
+                            style:grid-row=move || format!("{} / span 2", idx * 2 + 1)
+                            style:grid-column-start="7"
                         >
                             {move || time.clone()}
                         </div>
@@ -207,11 +226,6 @@ fn TimeTable(lesson_data: LessonData) -> impl IntoView {
                     }
                 }
             />
-            /* <div class="yellow"></div>
-            <div class="red"></div>
-            <div class="green"></div>
-            <div class="red"></div>
-            <div class="green"></div> */
         </div>
     }.into_any()
     
@@ -265,8 +279,7 @@ fn CourseEntry(course: Course, weekday: usize) -> impl IntoView {
         <div
             class="table-entry"
             style:grid-column-start=move || (weekday + 2).to_string()
-            style:grid-row-start=move || (start_y_offset + 2).to_string()
-            style:grid-row-end=move || format!("span {}", (end_y_offset - start_y_offset))
+            style:grid-row=move || format!("{} / span {}", start_y_offset + 2, end_y_offset - start_y_offset)
         >{move || course.name.clone()}</div>
     }
 
