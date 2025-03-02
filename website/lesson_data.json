@@ -1,0 +1,1046 @@
+{
+    "lessons_list": {
+        "01/04/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "12:30",
+                "name": "BIOCHEMISTRY",
+                "note": null,
+                "start": "09:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "16:30",
+                "name": "BIOCHEMISTRY",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "02/04/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "12:30",
+                "name": "BIOCHEMISTRY",
+                "note": null,
+                "start": "09:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "16:30",
+                "name": "BIOCHEMISTRY",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "03/03/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "13:30",
+                "name": "BIOCHEMISTRY",
+                "note": null,
+                "start": "11:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "17:30",
+                "name": "BIOCHEMISTRY",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "03/04/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "10:30",
+                "name": "CELLULAR BIOLOGY 2",
+                "note": null,
+                "start": "08:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "13:30",
+                "name": "BIOCHEMISTRY",
+                "note": null,
+                "start": "10:30"
+            },
+            {
+                "aula": "Aula PC (122)",
+                "end": "17:30",
+                "name": "CELLULAR BIOLOGY PRACTICALS",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "03/06/2025": [
+            {
+                "aula": "Aula PC (122)",
+                "end": "17:30",
+                "name": "PHYSIOLOGY PRACTICALS",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "04/03/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "11:30",
+                "name": "CELLULAR BIOLOGY 2",
+                "note": null,
+                "start": "08:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "13:30",
+                "name": "BIOCHEMISTRY",
+                "note": null,
+                "start": "11:30"
+            }
+        ],
+        "04/04/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "09:30",
+                "name": "CELLULAR BIOLOGY 2",
+                "note": null,
+                "start": "08:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "13:30",
+                "name": "BIOCHEMISTRY",
+                "note": null,
+                "start": "09:30"
+            },
+            {
+                "aula": "Aula PC (122)",
+                "end": "17:30",
+                "name": "CELLULAR BIOLOGY PRACTICALS",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "04/06/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "12:30",
+                "name": "PHYSIOLOGY PRACTICALS",
+                "note": null,
+                "start": "09:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "17:30",
+                "name": "PHYSIOLOGY PRACTICALS",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "05/03/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "11:30",
+                "name": "CELLULAR BIOLOGY 2",
+                "note": null,
+                "start": "08:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "13:30",
+                "name": "BIOCHEMISTRY",
+                "note": null,
+                "start": "11:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "17:30",
+                "name": "BIOCHEMISTRY",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "05/05/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "11:30",
+                "name": "INTERNSHIP IN GENERAL MEDICINE 1",
+                "note": null,
+                "start": "08:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "17:30",
+                "name": "BIOCHEMISTRY",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "06/03/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "11:30",
+                "name": "CELLULAR BIOLOGY 2",
+                "note": null,
+                "start": "08:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "13:30",
+                "name": "BIOCHEMISTRY",
+                "note": null,
+                "start": "11:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "17:30",
+                "name": "BIOCHEMISTRY",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "06/05/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "12:30",
+                "name": "BIOCHEMISTRY",
+                "note": null,
+                "start": "09:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "16:30",
+                "name": "BIOCHEMISTRY",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "06/06/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "17:30",
+                "name": "INTERNSHIP IN GENERAL MEDICINE 1",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "07/03/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "12:30",
+                "name": "CELLULAR BIOLOGY 2",
+                "note": null,
+                "start": "08:30"
+            },
+            {
+                "aula": "Aula PC (122)",
+                "end": "17:30",
+                "name": "CELLULAR BIOLOGY PRACTICALS",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "07/04/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "17:30",
+                "name": "HEART PHYSIOLOGY",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "07/05/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "11:30",
+                "name": "BIOCHEMISTRY",
+                "note": null,
+                "start": "08:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "17:30",
+                "name": "HEART PHYSIOLOGY",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "08/04/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "13:30",
+                "name": "HEART PHYSIOLOGY",
+                "note": null,
+                "start": "10:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "18:00",
+                "name": "HUMAN GENETICS",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "08/05/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "09:30",
+                "name": "BIOCHEMISTRY PRACTICALS",
+                "note": null,
+                "start": "08:30"
+            },
+            {
+                "aula": "Laboratorio (010)",
+                "end": "13:30",
+                "name": "BIOCHEMISTRY PRACTICALS",
+                "note": null,
+                "start": "09:30"
+            },
+            {
+                "aula": "Aula PC (122)",
+                "end": "15:30",
+                "name": "BIOCHEMISTRY PRACTICALS",
+                "note": null,
+                "start": "14:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "17:30",
+                "name": "HEART PHYSIOLOGY",
+                "note": null,
+                "start": "15:30"
+            }
+        ],
+        "09/04/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "10:30",
+                "name": "HUMAN GENETICS",
+                "note": null,
+                "start": "08:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "13:30",
+                "name": "HEART PHYSIOLOGY",
+                "note": null,
+                "start": "10:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "16:30",
+                "name": "ANATOMY PRACTICALS",
+                "note": null,
+                "start": "14:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "18:30",
+                "name": "ANATOMY PRACTICALS",
+                "note": null,
+                "start": "16:30"
+            }
+        ],
+        "09/05/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "09:30",
+                "name": "BIOCHEMISTRY PRACTICALS",
+                "note": null,
+                "start": "08:30"
+            },
+            {
+                "aula": "Laboratorio (010)",
+                "end": "13:30",
+                "name": "BIOCHEMISTRY PRACTICALS",
+                "note": null,
+                "start": "09:30"
+            },
+            {
+                "aula": "Aula PC (122)",
+                "end": "15:30",
+                "name": "BIOCHEMISTRY PRACTICALS",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "10/04/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "09:30",
+                "name": "ANATOMY PRACTICALS",
+                "note": null,
+                "start": "08:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "10:30",
+                "name": "ANATOMY PRACTICALS",
+                "note": null,
+                "start": "09:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "13:30",
+                "name": "HEART PHYSIOLOGY",
+                "note": null,
+                "start": "10:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "17:30",
+                "name": "BONES AND MUSCLES ANATOMY",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "11/03/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "17:30",
+                "name": "BONES AND MUSCLES ANATOMY",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "11/04/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "11:30",
+                "name": "HEART ANATOMY",
+                "note": null,
+                "start": "08:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "13:30",
+                "name": "HEART PHYSIOLOGY",
+                "note": null,
+                "start": "11:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "17:30",
+                "name": "INTERNSHIP IN GENERAL MEDICINE 1",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "12/03/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "13:30",
+                "name": "BONES AND MUSCLES ANATOMY",
+                "note": null,
+                "start": "11:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "17:30",
+                "name": "BONES AND MUSCLES ANATOMY",
+                "note": null,
+                "start": "15:30"
+            }
+        ],
+        "12/05/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "17:30",
+                "name": "BONES AND MUSCLES PHYSIOLOGY",
+                "note": null,
+                "start": "15:30"
+            }
+        ],
+        "13/03/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "11:30",
+                "name": "BONES AND MUSCLES ANATOMY",
+                "note": null,
+                "start": "08:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "16:30",
+                "name": "BONES AND MUSCLES ANATOMY",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "13/05/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "11:30",
+                "name": "BONES AND MUSCLES PHYSIOLOGY",
+                "note": null,
+                "start": "08:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "13:30",
+                "name": "HEART HYSTOLOGY AND EMBRYOLOGY",
+                "note": null,
+                "start": "11:30"
+            }
+        ],
+        "14/03/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "11:30",
+                "name": "BONES AND MUSCLES ANATOMY",
+                "note": null,
+                "start": "08:30"
+            }
+        ],
+        "14/05/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "11:30",
+                "name": "BONES AND MUSCLES PHYSIOLOGY",
+                "note": null,
+                "start": "08:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "13:30",
+                "name": "VASCULAR HYSTOLOGY AND EMBRYOLOGY",
+                "note": null,
+                "start": "11:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "17:30",
+                "name": "VASCULAR ANATOMY",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "15/05/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "11:30",
+                "name": "VASCULAR ANATOMY",
+                "note": null,
+                "start": "08:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "13:30",
+                "name": "VASCULAR HYSTOLOGY AND EMBRYOLOGY",
+                "note": null,
+                "start": "11:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "17:30",
+                "name": "BONES AND MUSCLES PHYSIOLOGY",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "16/05/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "11:30",
+                "name": "BONES AND MUSCLES PHYSIOLOGY",
+                "note": null,
+                "start": "08:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "13:30",
+                "name": "VASCULAR HYSTOLOGY AND EMBRYOLOGY",
+                "note": null,
+                "start": "11:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "17:30",
+                "name": "INTERNSHIP IN GENERAL MEDICINE 1",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "17/03/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "13:30",
+                "name": "BIOCHEMISTRY",
+                "note": null,
+                "start": "11:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "16:30",
+                "name": "BIOCHEMISTRY",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "18/03/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "12:30",
+                "name": "BIOCHEMISTRY",
+                "note": null,
+                "start": "08:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "13:30",
+                "name": "CELLULAR BIOLOGY 2",
+                "note": null,
+                "start": "12:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "16:30",
+                "name": "CELLULAR BIOLOGY 2",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "19/03/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "12:30",
+                "name": "BIOCHEMISTRY",
+                "note": null,
+                "start": "08:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "13:30",
+                "name": "CELLULAR BIOLOGY 2",
+                "note": null,
+                "start": "12:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "16:30",
+                "name": "CELLULAR BIOLOGY 2",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "19/05/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "13:30",
+                "name": "HUMAN GENETICS",
+                "note": null,
+                "start": "12:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "17:30",
+                "name": "HUMAN GENETICS",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "20/03/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "12:30",
+                "name": "BIOCHEMISTRY",
+                "note": null,
+                "start": "08:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "13:30",
+                "name": "CELLULAR BIOLOGY 2",
+                "note": null,
+                "start": "12:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "16:30",
+                "name": "CELLULAR BIOLOGY 2",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "20/05/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "11:30",
+                "name": "MOLECULAR BIOLOGY",
+                "note": null,
+                "start": "08:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "13:30",
+                "name": "HUMAN GENETICS",
+                "note": null,
+                "start": "11:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "16:30",
+                "name": "HUMAN GENETICS",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "21/03/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "13:30",
+                "name": "BIOCHEMISTRY",
+                "note": null,
+                "start": "08:30"
+            },
+            {
+                "aula": "Aula PC (122)",
+                "end": "17:30",
+                "name": "CELLULAR BIOLOGY PRACTICALS",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "21/05/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "11:30",
+                "name": "MOLECULAR BIOLOGY",
+                "note": null,
+                "start": "08:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "17:30",
+                "name": "INTERNSHIP IN GENERAL MEDICINE 1",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "22/05/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "12:30",
+                "name": "MOLECULAR BIOLOGY",
+                "note": null,
+                "start": "08:30"
+            }
+        ],
+        "23/05/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "11:30",
+                "name": "MOLECULAR BIOLOGY",
+                "note": null,
+                "start": "08:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "16:30",
+                "name": "VASCULAR PHYSIOLOGY",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "24/03/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "18:00",
+                "name": "HUMAN GENETICS",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "25/03/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "10:30",
+                "name": "HUMAN GENETICS",
+                "note": null,
+                "start": "08:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "13:30",
+                "name": "BONES AND MUSCLES HYSTOLOGY AND EMBRYOLOGY",
+                "note": null,
+                "start": "10:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "17:30",
+                "name": "BONES AND MUSCLES ANATOMY",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "26/03/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "10:30",
+                "name": "BONES AND MUSCLES ANATOMY",
+                "note": null,
+                "start": "09:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "13:30",
+                "name": "BONES AND MUSCLES HYSTOLOGY AND EMBRYOLOGY",
+                "note": null,
+                "start": "10:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "17:30",
+                "name": "BONES AND MUSCLES ANATOMY",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "26/05/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "11:30",
+                "name": "INTERNSHIP IN GENERAL MEDICINE 1",
+                "note": null,
+                "start": "08:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "13:30",
+                "name": "VASCULAR ANATOMY",
+                "note": null,
+                "start": "12:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "15:30",
+                "name": "VASCULAR ANATOMY",
+                "note": null,
+                "start": "14:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "17:30",
+                "name": "VASCULAR PHYSIOLOGY",
+                "note": null,
+                "start": "15:30"
+            }
+        ],
+        "27/03/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "10:30",
+                "name": "ANATOMY PRACTICALS",
+                "note": null,
+                "start": "08:30"
+            },
+            {
+                "aula": "Sala Microscopi (008)",
+                "end": "13:30",
+                "name": "HYSTOLOGY PRACTICALS",
+                "note": null,
+                "start": "10:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "17:30",
+                "name": "BONES AND MUSCLES ANATOMY",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "27/05/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "10:30",
+                "name": "VASCULAR ANATOMY",
+                "note": null,
+                "start": "08:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "13:30",
+                "name": "VASCULAR PHYSIOLOGY",
+                "note": null,
+                "start": "10:30"
+            },
+            {
+                "aula": "Sala Microscopi (008)",
+                "end": "17:30",
+                "name": "HYSTOLOGY PRACTICALS",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "28/03/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "11:30",
+                "name": "BONES AND MUSCLES ANATOMY",
+                "note": null,
+                "start": "08:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "13:30",
+                "name": "ANATOMY PRACTICALS",
+                "note": null,
+                "start": "11:30"
+            },
+            {
+                "aula": "Sala Microscopi (008)",
+                "end": "17:30",
+                "name": "HYSTOLOGY PRACTICALS",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "28/04/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "17:30",
+                "name": "HEART ANATOMY",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "28/05/2025": [
+            {
+                "aula": "Sala Microscopi (008)",
+                "end": "11:30",
+                "name": "ANATOMY PRACTICALS",
+                "note": null,
+                "start": "08:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "13:30",
+                "name": "VASCULAR PHYSIOLOGY",
+                "note": null,
+                "start": "11:30"
+            },
+            {
+                "aula": "Sala Microscopi (008)",
+                "end": "17:30",
+                "name": "HYSTOLOGY PRACTICALS",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "29/04/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "11:30",
+                "name": "VASCULAR ANATOMY",
+                "note": null,
+                "start": "08:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "13:30",
+                "name": "HEART HYSTOLOGY AND EMBRYOLOGY",
+                "note": null,
+                "start": "11:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "17:30",
+                "name": "BONES AND MUSCLES PHYSIOLOGY",
+                "note": null,
+                "start": "15:30"
+            }
+        ],
+        "29/05/2025": [
+            {
+                "aula": "Sala Microscopi (008)",
+                "end": "11:30",
+                "name": "ANATOMY PRACTICALS",
+                "note": null,
+                "start": "08:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "13:30",
+                "name": "VASCULAR PHYSIOLOGY",
+                "note": null,
+                "start": "11:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "17:30",
+                "name": "PHYSIOLOGY PRACTICALS",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "30/04/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "11:30",
+                "name": "BONES AND MUSCLES PHYSIOLOGY",
+                "note": null,
+                "start": "08:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "13:30",
+                "name": "HEART HYSTOLOGY AND EMBRYOLOGY",
+                "note": null,
+                "start": "11:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "17:30",
+                "name": "INTERNSHIP IN GENERAL MEDICINE 1",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "30/05/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "10:30",
+                "name": "VASCULAR PHYSIOLOGY",
+                "note": null,
+                "start": "08:30"
+            },
+            {
+                "aula": "Aula 302",
+                "end": "13:30",
+                "name": "PHYSIOLOGY PRACTICALS",
+                "note": null,
+                "start": "10:30"
+            },
+            {
+                "aula": "Aula PC (122)",
+                "end": "17:30",
+                "name": "PHYSIOLOGY PRACTICALS",
+                "note": null,
+                "start": "14:30"
+            }
+        ],
+        "31/03/2025": [
+            {
+                "aula": "Aula 302",
+                "end": "17:30",
+                "name": "BIOCHEMISTRY",
+                "note": null,
+                "start": "14:30"
+            }
+        ]
+    },
+    "main_course_data": {
+        "codice": "0H0C",
+        "codiceClasse": null,
+        "codiceClasseLaurea": "LM-41",
+        "codiceFacolta": "75012",
+        "codiceTipo": "LM6",
+        "codiceTipoMinisteriale": "LM6",
+        "descrizione": "Medicine and surgery",
+        "descrizioneAggiuntiva": null,
+        "descrizioneFacolta": "MEDICINA E CHIRURGIA \"A.GEMELLI\"",
+        "descrizioneInglese": "Medicine and Surgery",
+        "descrizioneTipo": "Laurea Magistrale Ciclo Unico 6 anni",
+        "sedeDidattica": "RM",
+        "sedeDidatticaEstesa": "Scuola Provinciale Superiore di Sanit\u00e0 - (Bolzano)"
+    }
+}

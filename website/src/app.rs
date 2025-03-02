@@ -1,0 +1,281 @@
+use leptos::prelude::*;
+use leptos::logging::log;
+use chrono::{self, Datelike, Days};
+use std::error::Error;
+use std::fs::read_to_string;
+use std::path::Path;
+use leptos_meta::{provide_meta_context, MetaTags, Stylesheet, Title};
+use leptos_router::{
+    components::{Route, Router, Routes},
+    StaticSegment,
+};
+
+use crate::lesson_data::{Course, LessonData};
+
+pub fn read_lesson_data_from_file<P: AsRef<Path>>(path: P) -> Result<LessonData, Box<dyn Error>> {
+
+    // Open the file in read-only mode with buffer.
+    let check_file_path_result = std::fs::exists(&path);
+    match check_file_path_result {
+        Ok(exists) => {
+            if exists {
+                let file_str = read_to_string(&path)?;
+                let lesson_data: LessonData = serde_json::from_str(&file_str)?;
+                return Ok(lesson_data);
+            }
+            else {
+                log!("Filepath does not exist");
+                return Err(Box::from("Filepath does not exist"));
+            }
+        },
+        Err(error) => {
+            let errorstring = format!("There was an issue locating the path, this might be due to accessing rights. Cannot confirm or deny existence:\n{error}");
+            log!("{errorstring}");
+            return Err(Box::from(error));
+        },
+    }
+    
+
+}
+
+#[server(GetLessonData, "/api", "GetJson", "get_lesson_data")]
+pub async fn get_lesson_data() -> Result<LessonData, ServerFnError> {
+    let read_data_result = read_lesson_data_from_file("./lesson_data.json");
+    read_data_result.or_else(|error|{
+        Err(ServerFnError::new(error.to_string()))
+    })
+}
+
+pub fn shell(options: LeptosOptions) -> impl IntoView {
+    view! {
+        <!DOCTYPE html>
+        <html lang="en">
+            <head>
+                <meta charset="utf-8"/>
+                <meta name="viewport" content="width=device-width, initial-scale=1"/>
+                <AutoReload options=options.clone() />
+                <HydrationScripts options/>
+                <MetaTags/>
+            </head>
+            <body>
+                <App/>
+            </body>
+        </html>
+    }
+}
+
+#[component]
+pub fn App() -> impl IntoView {
+    // Provides context that manages stylesheets, titles, meta tags, etc.
+    provide_meta_context();
+
+    view! {
+        // injects a stylesheet into the document <head>
+        // id=leptos means cargo-leptos will hot-reload this stylesheet
+        <Stylesheet id="leptos" href="/pkg/test-leptos.css"/>
+
+        // sets the document title
+        <Title text="Welcome to Leptos"/>
+
+        // content for this welcome page
+        <Router>
+            <main>
+                <Routes fallback=|| "Page not found.".into_view()>
+                    <Route path=StaticSegment("") view=HomePage/>
+                </Routes>
+            </main>
+        </Router>
+    }
+}
+
+/// Renders the home page of your application.
+#[component]
+fn HomePage() -> impl IntoView {
+    // Creates a reactive value to update the button
+    let week_nr_signal = RwSignal::new(0);
+    provide_context(week_nr_signal);
+    view! {
+        <Await
+            future=get_lesson_data()
+            let:lesson_data_result
+        >{
+            let result_clone = lesson_data_result.clone();
+            move || {
+                log!("{:#?}",result_clone.clone());
+                match result_clone.clone() {
+                    Ok(lesson_data) => {
+                        let cloned_data = lesson_data.clone();
+                        view! {
+                            <button type="button" 
+                                on:click=move |_| week_nr_signal.set(week_nr_signal.get() - 1)
+                            >
+                                go back
+                            </button>
+                            <button type="button" 
+                                on:click=move |_| week_nr_signal.set(week_nr_signal.get() + 1)
+                            >
+                                advance
+                            </button>
+                            
+                            <TimeTable lesson_data=cloned_data/>
+                        }.into_any()
+                    },
+                    Err(error) => {
+                        view! {
+                            <p>{format!("there was an error loading the data: {0}", error.to_string())}</p>
+                        }.into_any()
+                    },
+                }
+                
+            }
+        }</Await>
+    }
+}
+
+
+#[component]
+fn TimeTable(lesson_data: LessonData) -> impl IntoView {
+    let today = chrono::offset::Local::now();
+    log!("{:?}", today);
+    let current_weekday = today.date_naive().weekday();
+    let weekday_number = current_weekday.number_from_monday();
+    let monday_date_opt = today.checked_sub_days(Days::new((weekday_number - 1).into()));
+    if monday_date_opt.is_none() {
+        return view! {
+            <p>Could not aquire monday date</p>
+        }.into_any()
+    }
+    let monday_date = monday_date_opt.expect("monday date should be unwrappable at this point");
+    let lesson_data_signal = RwSignal::new(lesson_data);
+    let week_add_nr: RwSignal<i32> = use_context().expect("week number should be set at this point");
+    let monday_date_memo = Memo::new(move |_| {
+        let week_modifier = week_add_nr.get();
+
+        if week_modifier > 0 {
+            let modifier = u64::try_from(week_modifier).unwrap();
+            return monday_date.checked_add_days(Days::new(modifier * 7)).expect("date-week addition should exist");
+        }
+        else if week_modifier < 0 {
+            let modifier = u64::try_from(week_modifier * -1).unwrap();
+            return monday_date.checked_sub_days(Days::new(modifier * 7)).expect("date-week subtraction should exist");
+        }
+
+        return monday_date.clone();
+    });
+    provide_context(lesson_data_signal);
+    
+    let weekday_dates = move || {
+        (0..5u64)
+        .map(|number| monday_date_memo.get().checked_add_days(Days::new(number)).unwrap())
+        //.map(|date| format!("{}/{}/{}", date.day(), date.month(), date.year()))
+        .map(|date| date.format("%d/%m/%Y").to_string())
+        .into_iter()
+        .enumerate()
+        .collect::<Vec<(usize, String)>>()
+    };
+    let mut times: Vec<String> = vec![];
+    for offset in 0..13 {
+        times.push(format!("{}:00", 7 + offset));
+        times.push(format!("{}:30", 7 + offset));
+    };
+    let index_times: Vec<(usize, String)> = times.into_iter().enumerate().collect();
+    view!{
+        <div class="time-table">
+            <For
+                each=move || index_times.clone()
+                key=|(idx, time)| {
+                    time.to_string()
+                }
+                children=move |(idx, time)| {
+                    view! {
+                        <div
+                            style:grid-row-start=move || (idx * 2 + 2).to_string()
+                        >
+                            {move || time.clone()}
+                        </div>
+                    }
+                }
+            />
+            <For
+                each=move || weekday_dates()
+                key=|(_, date)| {
+                    date.to_string()
+                }
+                children=move |(indx, date)| {
+                    view! {
+                        <DayEntry indx date/>
+                    }
+                }
+            />
+            /* <div class="yellow"></div>
+            <div class="red"></div>
+            <div class="green"></div>
+            <div class="red"></div>
+            <div class="green"></div> */
+        </div>
+    }.into_any()
+    
+}
+
+#[component]
+fn DayEntry(indx: usize, date: String) -> impl IntoView {
+    let weekdays = vec!["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"];
+    let lesson_data: RwSignal<LessonData> = use_context().expect("Expecting Lesson data to exist");
+    let date_clone = date.clone();
+    let courses = move || lesson_data.with(|data| {
+        let lesson_list_opt = data.lessons_list.get(&date_clone);
+        if lesson_list_opt.is_none() {
+            return vec![];
+        }
+        return lesson_list_opt.unwrap().clone();
+    });
+    view! {
+        <div
+            style:grid-column-start=move||{(indx + 2).to_string()}
+            class="header"
+        >
+            {move || format!("{} {}", weekdays.get(indx).expect("day name should bet there").to_string(),  date.to_string())}
+        </div>
+
+        <For
+            each=move || courses()
+            key=|course| course.start.clone()
+            children=move |course| {
+                view! {
+                    <CourseEntry course weekday=indx/>
+                }
+            }
+        />
+    }
+}
+
+#[component]
+fn CourseEntry(course: Course, weekday: usize) -> impl IntoView {
+    let (start_hour, start_minute) = get_hour_and_min_from_time(course.start);
+    let (end_hour, end_minute) = get_hour_and_min_from_time(course.end);
+
+    let start_y_offset = (start_hour - 7) * 4 + start_minute / 15; 
+    let end_y_offset = (end_hour - 7) * 4 + end_minute / 15; 
+
+    assert!(start_y_offset > 0);
+    assert!(end_y_offset > 0);
+    assert!(start_y_offset < end_y_offset);
+
+    view! {
+        <div
+            class="table-entry"
+            style:grid-column-start=move || (weekday + 2).to_string()
+            style:grid-row-start=move || (start_y_offset + 2).to_string()
+            style:grid-row-end=move || format!("span {}", (end_y_offset - start_y_offset))
+        >{move || course.name.clone()}</div>
+    }
+
+}
+
+
+fn get_hour_and_min_from_time(time: String) -> (i32, i32) {
+    let split_time: Vec<String> = time.split(":").map(|val|val.to_string()).collect();
+    let hour: i32 = split_time.get(0).unwrap().parse().unwrap();
+    let minute: i32 = split_time.get(1).unwrap().parse().unwrap();
+    return (hour, minute)
+}
