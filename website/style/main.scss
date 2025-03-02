@@ -1,12 +1,12 @@
-body {
-	font-family: sans-serif;
-	text-align: center;
-}
-
 *,
 *::before,
 *::after {
 	box-sizing: border-box;
+}
+
+body {
+	font-family: sans-serif;
+	text-align: center;
 }
 
 button {
@@ -26,28 +26,11 @@ button {
 }
 
 .header {
-	grid-row-start: 0;
-}
-
-.yellow {
-	background-color: rgb(223, 210, 29);
-	grid-column-start: 2;
-	grid-row-start: 3;
-	grid-row-end: span 4;
-}
-
-.red {
-	background-color: rgb(231, 60, 60);
-	grid-column-start: 2;
-}
-
-.green {
-	background-color: rgb(59, 173, 59);
-	grid-column-start: 2;
+	grid-row: 1 / span 1;
 }
 
 .table-entry {
-	background-color: rgb(59, 173, 59);
+	background-color: rgb(79, 165, 79);
 	color: white;
 	align-content: center;
 	padding: 5px;
@@ -58,10 +41,26 @@ button {
 	align-self: center;
 	justify-self: end;
 	padding: 5px;
+	z-index: 1;
+	grid-column: 1;
 }
 
 .time-end {
 	align-self: center;
 	justify-self: start;
-	padding: 5px
+	padding: 5px;
+	grid-column: 7;
+}
+
+.background-row {
+	z-index: -2;
+	grid-column: 2 / span 5;
+}
+
+.background-row-dark {
+	background-color: rgba(226, 198, 180, 0.596);
+}
+
+.background-row-bright {
+	background-color: rgba(221, 181, 155, 0.555);
 }

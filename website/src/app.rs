@@ -208,10 +208,15 @@ fn TimeTable(lesson_data: LessonData) -> impl IntoView {
                         <div
                             class="time-end"
                             style:grid-row=move || format!("{} / span 2", idx * 2 + 1)
-                            style:grid-column-start="7"
                         >
                             {move || time.clone()}
                         </div>
+                        <div 
+                            class="background-row"
+                            class:background-row-dark=move || idx % 2 == 0
+                            class:background-row-bright=move || idx % 2 == 1
+                            style:grid-row=move || format!("{} / span 2", idx * 2 + 2)
+                        ></div>
                     }
                 }
             />
