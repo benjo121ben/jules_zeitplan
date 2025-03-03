@@ -5,11 +5,8 @@ use serde::Serialize;
 use serde_json::Value;
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
 pub struct LessonData {
-    #[serde(rename = "lessons_list")]
     pub lessons_list: HashMap<String, Vec<Course>>,
-    #[serde(rename = "last_executed")]
     pub last_executed: String
     /* #[serde(rename = "main_course_data")]
     pub main_course_data: MainCourseData, */
@@ -28,7 +25,7 @@ pub struct Course {
     pub aula: String,
     pub end: String,
     pub name: String,
-    pub note: Value,
+    pub note: Option<String>,
     pub start: String,
 }
 

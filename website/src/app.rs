@@ -291,7 +291,7 @@ fn CourseEntry(course: Course, weekday: usize) -> impl IntoView {
             class="table-entry"
             style:grid-column-start=move || (weekday + 2).to_string()
             style:grid-row=move || format!("{} / span {}", start_y_offset + 2, end_y_offset - start_y_offset)
-        >{move || course.name.clone()}</div>
+        >{move || course.name.clone()}<br/>{move || course.aula.clone()}<br/>{move || course.note.clone().or(Some("".to_string())).unwrap()}</div>
     }
 
 }
