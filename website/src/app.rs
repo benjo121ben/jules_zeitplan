@@ -2,7 +2,7 @@ use leptos::prelude::*;
 use leptos::logging::log;
 use chrono::{self, Datelike, Days};
 use std::collections::HashMap;
-use std::{clone, error::Error};
+use std::error::Error;
 use std::fs::read_to_string;
 use std::path::Path;
 use leptos_meta::{provide_meta_context, MetaTags, Stylesheet, Title};
@@ -314,7 +314,7 @@ fn CourseEntry(course: Course, weekday: usize) -> impl IntoView {
     view! {
         <div
             class="table-entry"
-            style:background-color=move || color.clone()
+            style:background-color=move || color
             style:grid-column-start=move || (weekday + 2).to_string()
             style:grid-row=move || format!("{} / span {}", start_y_offset + 2, end_y_offset - start_y_offset)
         >
