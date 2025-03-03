@@ -38,9 +38,41 @@ pub fn read_lesson_data_from_file<P: AsRef<Path>>(path: P) -> Result<LessonData,
 
 }
 
+pub fn read_timestamp<P: AsRef<Path>>(path: P) -> Result<String, Box<dyn Error>> {
+
+    // Open the file in read-only mode with buffer.
+    let check_file_path_result = std::fs::exists(&path);
+    match check_file_path_result {
+        Ok(exists) => {
+            if exists {
+                return Ok(read_to_string(&path)?);
+            }
+            else {
+                log!("Filepath does not exist");
+                return Err(Box::from("Filepath does not exist"));
+            }
+        },
+        Err(error) => {
+            let errorstring = format!("There was an issue locating the path, this might be due to accessing rights. Cannot confirm or deny existence:\n{error}");
+            log!("{errorstring}");
+            return Err(Box::from(error));
+        },
+    }
+    
+
+}
+
 #[server(GetLessonData, "/api", "GetJson", "get_lesson_data")]
 pub async fn get_lesson_data() -> Result<LessonData, ServerFnError> {
     let read_data_result = read_lesson_data_from_file("./lesson_data.json");
+    read_data_result.or_else(|error|{
+        Err(ServerFnError::new(error.to_string()))
+    })
+}
+
+#[server(GetTimestamp, "/api", "GetJson", "get_timestamp")]
+pub async fn get_timestamp() -> Result<String, ServerFnError> {
+    let read_data_result = read_timestamp("./last_run.txt");
     read_data_result.or_else(|error|{
         Err(ServerFnError::new(error.to_string()))
     })
@@ -81,7 +113,7 @@ pub fn App() -> impl IntoView {
         <Router>
             <main>
                 <Routes fallback=|| "Page not found.".into_view()>
-                    <Route path=StaticSegment("") view=HomePage/>
+                    <Route path=StaticSegment("") view=AwaitTimestamp/>
                 </Routes>
             </main>
         </Router>
@@ -90,7 +122,30 @@ pub fn App() -> impl IntoView {
 
 /// Renders the home page of your application.
 #[component]
-fn HomePage() -> impl IntoView {
+fn AwaitTimestamp() -> impl IntoView {
+    view! {
+        <Await
+            future=get_timestamp()
+            let:timestamp_result
+        >{
+
+            match timestamp_result {
+                Ok(timestamp) => view!{
+                    <HomePage timestamp=timestamp.clone()/>
+                }.into_any(),
+                Err(error) => {
+                    view! {
+                        <p>{format!("there was an error loading the data: {0}", error.to_string())}</p>
+                    }.into_any()
+                },
+            }
+        }</Await>
+    }
+}
+
+/// Renders the home page of your application.
+#[component]
+fn HomePage(timestamp: String) -> impl IntoView {
     // Creates a reactive value to update the button
     let week_nr_signal = RwSignal::new(0);
     provide_context(week_nr_signal);
@@ -100,24 +155,31 @@ fn HomePage() -> impl IntoView {
             let:lesson_data_result
         >{
             let result_clone = lesson_data_result.clone();
+            let timestamp_clone = timestamp.clone();
             move || {
                 log!("{:#?}",result_clone.clone());
                 match result_clone.clone() {
                     Ok(lesson_data) => {
                         let cloned_data = lesson_data.clone();
+                        let timestamp_clone2 = timestamp_clone.clone();
                         view! {
-                            <button type="button" 
-                                on:click=move |_| week_nr_signal.set(week_nr_signal.get() - 1)
-                            >
-                                previous
-                            </button>
-                            <button type="button" 
-                                on:click=move |_| week_nr_signal.set(week_nr_signal.get() + 1)
-                            >
-                                next
-                            </button>
-                            
-                            <TimeTable lesson_data=cloned_data/>
+                            <div class="main-div">
+                                <div class="button_div">
+                                    <button type="button" 
+                                        on:click=move |_| week_nr_signal.set(week_nr_signal.get() - 1)
+                                    >
+                                        previous
+                                    </button>
+                                    <div>Last updated {move || timestamp_clone2.clone()}</div>
+                                    <button type="button" 
+                                        on:click=move |_| week_nr_signal.set(week_nr_signal.get() + 1)
+                                    >
+                                        next
+                                    </button>
+                                </div>
+                                    
+                                <TimeTable lesson_data=cloned_data/>
+                            </div>
                         }.into_any()
                     },
                     Err(error) => {
@@ -136,7 +198,6 @@ fn HomePage() -> impl IntoView {
 #[component]
 fn TimeTable(lesson_data: LessonData) -> impl IntoView {
     let today = chrono::offset::Local::now();
-    log!("{:?}", today);
     let current_weekday = today.date_naive().weekday();
     let weekday_number = current_weekday.number_from_monday();
     let monday_date_opt = today.checked_sub_days(Days::new((weekday_number - 1).into()));

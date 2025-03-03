@@ -12,8 +12,12 @@ body {
 button {
 	min-width: 80px;
 	min-height: 40px;
-	margin-left: 50;
-	margin-right: 50;
+}
+
+.button_div {
+	display: flex;
+	justify-content:space-around;
+	margin-bottom: 10px;
 }
 
 .time-table {
@@ -35,6 +39,7 @@ button {
 	align-content: center;
 	padding: 5px;
 	border-radius: 10px;
+	word-break: break-word;
 }
 
 .time-start {
