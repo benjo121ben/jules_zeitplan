@@ -21,6 +21,7 @@ r = requests.post(url = URL, json=BODY)
 data = r.json()
 reformatted_data: dict = {
     "main_course_data": data["corsoDiLaurea"],
+    "last_executed": str(datetime.datetime.now()),
     "lessons_list": {}
 }
 lesson_dict: dict = data["lezioniCalendario"]
@@ -39,5 +40,3 @@ pretty_data = json.dumps(reformatted_data, indent=4, sort_keys=True)
 print(pretty_data)
 with open("lesson_data.json", "w") as file:
     file.write(pretty_data)
-with open("last_run.txt", "w") as file:
-    file.write(str(datetime.datetime.now()))

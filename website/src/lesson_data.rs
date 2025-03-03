@@ -9,6 +9,8 @@ use serde_json::Value;
 pub struct LessonData {
     #[serde(rename = "lessons_list")]
     pub lessons_list: HashMap<String, Vec<Course>>,
+    #[serde(rename = "last_executed")]
+    pub last_executed: String
     /* #[serde(rename = "main_course_data")]
     pub main_course_data: MainCourseData, */
 }
