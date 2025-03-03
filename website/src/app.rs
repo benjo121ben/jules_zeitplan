@@ -1,6 +1,7 @@
 use leptos::prelude::*;
 use leptos::logging::log;
 use chrono::{self, Datelike, Days};
+use std::collections::HashMap;
 use std::{clone, error::Error};
 use std::fs::read_to_string;
 use std::path::Path;
@@ -91,6 +92,27 @@ pub fn App() -> impl IntoView {
 /// Renders the home page of your application.
 #[component]
 fn HomePage() -> impl IntoView {
+    let COLORS: HashMap<&str, &str> = [
+        ("ANATOMY PRACTICALS","#77c46d"),
+        ("BONES AND MUSCLES ANATOMY","#58ad4c"),
+        ("BONES AND MUSCLES HYSTOLOGY AND EMBRYOLOGY","#3f8b35"),
+        ("BONES AND MUSCLES PHYSIOLOGY","#20551a"),
+        ("HEART ANATOMY","#b9be73"),
+        ("HEART HYSTOLOGY AND EMBRYOLOGY","#b8b15a"),
+        ("HEART PHYSIOLOGY","#bda749"),
+        ("HYSTOLOGY PRACTICALS","#bd9134"),
+        ("PHYSIOLOGY PRACTICALS","#a18b59"),
+        ("VASCULAR ANATOMY","#6f98be"),
+        ("VASCULAR HYSTOLOGY AND EMBRYOLOGY","#456a8d"),
+        ("VASCULAR PHYSIOLOGY","#32457a"),
+        ("BIOCHEMISTRY","#ac469b"),
+        ("BIOCHEMISTRY PRACTICALS","#c96e9b"),
+        ("CELLULAR BIOLOGY 2","#80747a"),
+        ("CELLULAR BIOLOGY PRACTICALS","#63565c"),
+        ("HUMAN GENETICS","#c99c69"),
+        ("MOLECULAR BIOLOGY","#554f49"),
+    ].iter().cloned().collect();
+    provide_context(COLORS);
     // Creates a reactive value to update the button
     let week_nr_signal = RwSignal::new(0);
     provide_context(week_nr_signal);
@@ -276,11 +298,14 @@ fn DayEntry(indx: usize, date: String) -> impl IntoView {
 
 #[component]
 fn CourseEntry(course: Course, weekday: usize) -> impl IntoView {
+    let COLORS: HashMap<&str, &str> = use_context().expect("expecting color hashmap");
     let (start_hour, start_minute) = get_hour_and_min_from_time(course.start);
     let (end_hour, end_minute) = get_hour_and_min_from_time(course.end);
 
     let start_y_offset = (start_hour - 7) * 4 + start_minute / 15; 
     let end_y_offset = (end_hour - 7) * 4 + end_minute / 15; 
+
+    let color = COLORS.get(&course.name.clone() as &str).cloned().or(Some("#c23138")).unwrap();
 
     assert!(start_y_offset > 0);
     assert!(end_y_offset > 0);
@@ -289,9 +314,16 @@ fn CourseEntry(course: Course, weekday: usize) -> impl IntoView {
     view! {
         <div
             class="table-entry"
+            style:background-color=move || color.clone()
             style:grid-column-start=move || (weekday + 2).to_string()
             style:grid-row=move || format!("{} / span {}", start_y_offset + 2, end_y_offset - start_y_offset)
-        >{move || course.name.clone()}<br/>{move || course.aula.clone()}<br/>{move || course.note.clone().or(Some("".to_string())).unwrap()}</div>
+        >
+            {move || course.name.clone()}
+            <br/>
+            {move || course.aula.clone()}
+            <br/>
+            {move || course.note.clone().or(Some("".to_string())).unwrap()}
+        </div>
     }
 
 }
