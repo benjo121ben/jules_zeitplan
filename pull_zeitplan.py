@@ -15,7 +15,7 @@ BODY = {
 }
 
 # sending get request and saving the response as response object
-r = requests.post(url = URL, json=BODY)
+r = requests.post(url = URL, json=BODY, timeout=10.0)
 
 # extracting data in json format
 data = r.json()
@@ -36,7 +36,7 @@ for date, course_list in lesson_dict.items():
             "note" : course_data["note"],
         })
     reformatted_data["lessons_list"][date] = new_courses_list
-pretty_data = json.dumps(reformatted_data, indent=4, sort_keys=True, timeout=10.0)
+pretty_data = json.dumps(reformatted_data, indent=4, sort_keys=True)
 print(pretty_data)
 with open("lesson_data.json", "w") as file:
     file.write(pretty_data)
