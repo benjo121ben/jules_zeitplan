@@ -36,7 +36,7 @@ for date, course_list in lesson_dict.items():
             "note" : course_data["note"],
         })
     reformatted_data["lessons_list"][date] = new_courses_list
-pretty_data = json.dumps(reformatted_data, indent=4, sort_keys=True)
+pretty_data = json.dumps(reformatted_data, indent=4, sort_keys=True, timeout=10.0)
 print(pretty_data)
 with open("lesson_data.json", "w") as file:
     file.write(pretty_data)
