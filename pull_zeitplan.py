@@ -1,5 +1,7 @@
 import datetime
 import requests
+from requests.packages.urllib3.util.retry import Retry
+from requests.adapters import HTTPAdapter
 import json
 
 # api-endpoint
@@ -14,8 +16,18 @@ BODY = {
     "annoDiCorso":"1"
 }
 
+retry_strategy = Retry(
+    total=4,
+    status_forcelist=[429, 500, 502, 503, 504],
+    backoff_factor = 2
+)
+adapter = HTTPAdapter(max_retries=retry_strategy)
+http = requests.Session()
+http.mount("https://", adapter)
+http.mount("http://", adapter)
+
 # sending get request and saving the response as response object
-r = requests.post(url = URL, json=BODY, timeout=10.0)
+r = http.post(url = URL, json=BODY, timeout=10.0)
 
 # extracting data in json format
 data = r.json()
